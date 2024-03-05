@@ -2,7 +2,7 @@ package sections;
 
 import java.util.Scanner;
 
-public class MainMenu {
+public class MenuUtil {
 
     public static int printMenu(String[] menuItems, Scanner input){
 

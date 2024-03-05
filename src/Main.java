@@ -1,7 +1,7 @@
 import models.Account;
 import models.Client;
 import models.User;
-import sections.MainMenu;
+import sections.MenuUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class Main {
 
         while(true){
 
-        int selectedMenuItem = MainMenu.printMenu(menuItems, input);
+        int selectedMenuItem = MenuUtil.printMenu(menuItems, input);
 
             switch (selectedMenuItem){
                 case 0:
@@ -46,7 +46,5 @@ public class Main {
                     break;
             }
         }
-
     }
-
 }
