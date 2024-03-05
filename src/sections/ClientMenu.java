@@ -18,6 +18,8 @@ public class ClientMenu {
         clientMenuItems[4] = "(5) View All Clients";
         clientMenuItems[5] = "(6) Exit";
 
+        clientSubMenu(clients, input, clientMenuItems);
+
     }
 
     private static void clientSubMenu(List<Client> clients, Scanner input, String[] clientMenuItems){

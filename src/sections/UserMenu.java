@@ -20,12 +20,12 @@ public class UserMenu {
 
             switch (selectedMenuItem){
                 case 0:
-                    System.out.println("Client Section");
+                    ClientMenu.clientSection(clients, input);
                     break;
                 case 1:
                     System.out.println("Account Section");
                     break;
-                case 3:
+                case 2:
                     return;
             }
         }
