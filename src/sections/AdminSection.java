@@ -27,19 +27,19 @@ public class AdminSection {
 
             switch (selectedMenuItem){
                 case 0:
-                    System.out.println("add user");
+                    addUser(users, input);
                     break;
                 case 1:
-                    System.out.println("Find user");
+                    findUserById(users, input);
                     break;
                 case 2:
-                    System.out.println("Update user");
+                    updateUser(users, input);
                     break;
                 case 3:
-                    System.out.println("Delete user");
+                    deleteUser(users, input);
                     break;
                 case 4:
-                    System.out.println("View all users");
+                    viewAllUsers(users);
                     break;
                 case 5:
                     return;
@@ -47,5 +47,23 @@ public class AdminSection {
         }
     }
 
+    private static void viewAllUsers(List<User> users){
+        System.out.println("view all users");
+    }
 
+    private static void findUserById(List<User> users, Scanner input){
+        System.out.println("find user by id");
+    }
+
+    private static void updateUser(List<User> users, Scanner input){
+        System.out.println("update user");
+    }
+
+    private static void deleteUser(List<User> users, Scanner input){
+        System.out.println("delete user");
+    }
+
+    private static void addUser(List<User> users, Scanner input){
+        System.out.println("add user");
+    }
 }
