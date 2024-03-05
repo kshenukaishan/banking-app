@@ -3,6 +3,7 @@ import models.Client;
 import models.User;
 import sections.AdminMenu;
 import sections.MenuUtil;
+import sections.UserMenu;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,7 @@ public class Main {
                     break;
                 case 1:
                     System.out.println("You are in User Section");
+                    UserMenu.userSection(clients, accounts, input);
                     break;
                 case 2:
                     System.out.println("You are in Client section");

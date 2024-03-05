@@ -1,5 +1,6 @@
 package sections;
 
+import models.Account;
 import models.Client;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 
 public class UserMenu {
 
-    private static void userSection(List<Client> clients, Scanner input){
+    public static void userSection(List<Client> clients, List<Account> accounts,  Scanner input){
 
         String[] userMainMenuItems = new String[3];
         userMainMenuItems[0] = "(1) Clients Section";
@@ -29,5 +30,4 @@ public class UserMenu {
             }
         }
     }
-
 }
