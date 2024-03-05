@@ -1,0 +1,33 @@
+package sections;
+
+import models.Client;
+
+import java.util.List;
+import java.util.Scanner;
+
+public class UserMenu {
+
+    private static void userSection(List<Client> clients, Scanner input){
+
+        String[] userMainMenuItems = new String[3];
+        userMainMenuItems[0] = "(1) Clients Section";
+        userMainMenuItems[1] = "(2) Accounts Section";
+        userMainMenuItems[2] = "(3) Exit";
+
+        while(true){
+            int selectedMenuItem = MenuUtil.printMenu(userMainMenuItems, input);
+
+            switch (selectedMenuItem){
+                case 0:
+                    System.out.println("Client Section");
+                    break;
+                case 1:
+                    System.out.println("Account Section");
+                    break;
+                case 3:
+                    return;
+            }
+        }
+    }
+
+}

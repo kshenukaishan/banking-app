@@ -1,6 +1,7 @@
 import models.Account;
 import models.Client;
 import models.User;
+import sections.AdminMenu;
 import sections.MenuUtil;
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class Main {
             switch (selectedMenuItem){
                 case 0:
                     System.out.println("You are in Admin Section");
+                    AdminMenu.adminSection(users, input);
                     break;
                 case 1:
                     System.out.println("You are in User Section");

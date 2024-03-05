@@ -5,9 +5,9 @@ import models.User;
 import java.util.List;
 import java.util.Scanner;
 
-public class AdminSection {
+public class AdminMenu {
 
-    public static void adminSection(List<User> users){
+    public static void adminSection(List<User> users, Scanner input){
 
         String[] adminMenuItems = new String[6];
 
@@ -18,12 +18,14 @@ public class AdminSection {
         adminMenuItems[4] = "(5) View All DUser";
         adminMenuItems[5] = "(6) Exit";
 
+        subMenuSection(users, input, adminMenuItems);
+
     }
 
-    private static void subMenuSection(List<User> users, Scanner input, String[] userMenuItems){
+    private static void subMenuSection(List<User> users, Scanner input, String[] adminMenuItems){
 
         while (true){
-            int selectedMenuItem = MenuUtil.printMenu(userMenuItems, input);
+            int selectedMenuItem = MenuUtil.printMenu(adminMenuItems, input);
 
             switch (selectedMenuItem){
                 case 0:
