@@ -1,7 +1,6 @@
 package sections;
 
 import models.Account;
-import models.Client;
 
 import java.util.List;
 import java.util.Scanner;
