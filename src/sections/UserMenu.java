@@ -23,7 +23,7 @@ public class UserMenu {
                     ClientMenu.clientSection(clients, input);
                     break;
                 case 1:
-                    System.out.println("Account Section");
+                    AccountMenu.accountSection(accounts, input);
                     break;
                 case 2:
                     return;
