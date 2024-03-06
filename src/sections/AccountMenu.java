@@ -12,12 +12,14 @@ public class AccountMenu {
 
         String[] accountMenuItems = new String[6];
 
-        accountMenuItems[0] = "(1) Add Client";
-        accountMenuItems[1] = "(2) Find Client";
-        accountMenuItems[2] = "(3) Update Client";
-        accountMenuItems[3] = "(4) Delete Client";
-        accountMenuItems[4] = "(5) View All Clients";
+        accountMenuItems[0] = "(1) Add Account";
+        accountMenuItems[1] = "(2) Find Account";
+        accountMenuItems[2] = "(3) Update Account";
+        accountMenuItems[3] = "(4) Delete Account";
+        accountMenuItems[4] = "(5) View All Account";
         accountMenuItems[5] = "(6) Exit";
+
+        accountSubMenu(accounts, input, accountMenuItems);
 
     }
 
