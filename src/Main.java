@@ -2,6 +2,7 @@ import models.Account;
 import models.Client;
 import models.User;
 import sections.AdminMenu;
+import sections.AtmMenu;
 import sections.MenuUtil;
 import sections.UserMenu;
 
@@ -23,10 +24,10 @@ public class Main {
         List<Client> clients = new ArrayList<>();
         List<Account> accounts = new ArrayList<>();
 
-        menuItems[0] = "Admin section";
-        menuItems[1] = "User's section";
-        menuItems[2] = "Client's section";
-        menuItems[3] = "Exit";
+        menuItems[0] = "(1) Admin section";
+        menuItems[1] = "(2) User's section";
+        menuItems[2] = "(3) Client's section";
+        menuItems[3] = "(4) Exit";
 
 
         while(true){
@@ -44,6 +45,7 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("You are in Client section");
+                    AtmMenu.atmSection(accounts, input);
                     break;
                 case 3:
                     System.out.println("Thank you!");

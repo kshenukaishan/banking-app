@@ -10,13 +10,13 @@ public class AtmMenu {
 
     public static void atmSection(List<Account> accounts, Scanner input){
 
-        String[] atmMenuItems = new String[6];
+        String[] atmMenuItems = new String[5];
 
         atmMenuItems[0] = "(1) Deposit money";
         atmMenuItems[1] = "(2) Withdraw money";
         atmMenuItems[2] = "(3) Check balance";
-        atmMenuItems[4] = "(4) View account details";
-        atmMenuItems[5] = "(5) Exit";
+        atmMenuItems[3] = "(4) View account details";
+        atmMenuItems[4] = "(5) Exit";
 
         atmSubMenuSection(accounts, input, atmMenuItems);
 
