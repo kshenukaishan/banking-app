@@ -1,6 +1,6 @@
 package sections;
 
-import dao.ClientDao;
+import dao.custom.impl.ClientDaoImpl;
 import models.Client;
 
 import java.util.List;
@@ -50,22 +50,22 @@ public class ClientMenu {
     }
 
     private static void addClient(List<Client> clients, Scanner input){
-        ClientDao.addClient(clients, input);
+        ClientDaoImpl.addClient(clients, input);
     }
 
     private static void findClientById(List<Client> clients, Scanner input){
-        ClientDao.findClientById(clients, input);
+        ClientDaoImpl.findClientById(clients, input);
     }
 
     private static void updateClient(List<Client> clients, Scanner input){
-        ClientDao.updateClient(clients, input);
+        ClientDaoImpl.updateClient(clients, input);
     }
 
     private static void deleteClient(List<Client> clients, Scanner input){
-        ClientDao.deleteClient(clients, input);
+        ClientDaoImpl.deleteClient(clients, input);
     }
 
     private static void viewAllClients(List<Client> clients){
-        ClientDao.viewAllClient(clients);
+        ClientDaoImpl.viewAllClient(clients);
     }
 }

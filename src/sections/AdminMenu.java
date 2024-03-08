@@ -1,6 +1,6 @@
 package sections;
 
-import dao.UserDao;
+import dao.custom.impl.UserDaoImpl;
 import models.User;
 
 import java.util.List;
@@ -51,22 +51,22 @@ public class AdminMenu {
     }
 
     private static void viewAllUsers(List<User> users){
-        UserDao.viewAllUsers(users);
+        UserDaoImpl.viewAllUsers(users);
     }
 
     private static void findUserById(List<User> users, Scanner input){
-        UserDao.findUserById(users, input);
+        UserDaoImpl.findUserById(users, input);
     }
 
     private static void updateUser(List<User> users, Scanner input){
-        UserDao.updateUser(users, input);
+        UserDaoImpl.updateUser(users, input);
     }
 
     private static void deleteUser(List<User> users, Scanner input){
-        UserDao.deleteUser(users, input);
+        UserDaoImpl.deleteUser(users, input);
     }
 
     private static void addUser(List<User> users, Scanner input){
-        UserDao.addUser(users, input);
+        UserDaoImpl.addUser(users, input);
     }
 }

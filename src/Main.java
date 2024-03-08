@@ -49,7 +49,7 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Thank you!");
-                    break;
+                    System.exit(0);
             }
         }
     }

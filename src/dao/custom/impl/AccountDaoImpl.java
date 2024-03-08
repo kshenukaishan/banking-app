@@ -1,4 +1,4 @@
-package dao;
+package dao.custom.impl;
 
 import models.Account;
 
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class AccountDao {
+public class AccountDaoImpl {
 
     public static void viewAllAccounts(List<Account> accounts){
         accounts.forEach(System.out::println);

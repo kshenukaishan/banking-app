@@ -1,13 +1,12 @@
-package dao;
+package dao.custom.impl;
 
 import models.Client;
-import models.User;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class ClientDao {
+public class ClientDaoImpl {
 
     public static void viewAllClient(List<Client> clients){
         clients.forEach(System.out::println);

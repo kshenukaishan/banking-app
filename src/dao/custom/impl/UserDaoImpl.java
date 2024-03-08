@@ -1,4 +1,4 @@
-package dao;
+package dao.custom.impl;
 
 import models.User;
 
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class UserDao {
+public class UserDaoImpl {
 
     public static void viewAllUsers(List<User> users){
         users.forEach(System.out::println);

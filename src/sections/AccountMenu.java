@@ -1,6 +1,6 @@
 package sections;
 
-import dao.AccountDao;
+import dao.custom.impl.AccountDaoImpl;
 import models.Account;
 
 import java.util.List;
@@ -50,22 +50,22 @@ public class AccountMenu {
     }
 
     private static void viewAllAccount(List<Account> accounts) {
-        AccountDao.viewAllAccounts(accounts);
+        AccountDaoImpl.viewAllAccounts(accounts);
     }
 
     private static void deleteAccount(List<Account> accounts, Scanner input) {
-        AccountDao.deleteAccount(accounts, input);
+        AccountDaoImpl.deleteAccount(accounts, input);
     }
 
     private static void updateAccount(List<Account> accounts, Scanner input) {
-        AccountDao.updateAccount(accounts, input);
+        AccountDaoImpl.updateAccount(accounts, input);
     }
 
     private static void findAccount(List<Account> accounts, Scanner input) {
-        AccountDao.findAccountById(accounts, input);
+        AccountDaoImpl.findAccountById(accounts, input);
     }
 
     private static void addAccount(List<Account> accounts, Scanner input) {
-        AccountDao.addAccount(accounts, input);
+        AccountDaoImpl.addAccount(accounts, input);
     }
 }
