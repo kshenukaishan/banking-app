@@ -1,5 +1,6 @@
 package sections;
 
+import dao.UserDao;
 import models.User;
 
 import java.util.List;
@@ -50,7 +51,7 @@ public class AdminMenu {
     }
 
     private static void viewAllUsers(List<User> users){
-        System.out.println("view all users");
+        UserDao.viewAllUsers(users);
     }
 
     private static void findUserById(List<User> users, Scanner input){

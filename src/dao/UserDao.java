@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class UserDao {
 
-    public static void viewAllPatients(List<User> users){
+    public static void viewAllUsers(List<User> users){
         users.forEach(System.out::println);
     }
 
