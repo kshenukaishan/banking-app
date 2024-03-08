@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class AdminMenu {
 
+
     public static void adminSection(List<User> users, Scanner input){
 
         String[] adminMenuItems = new String[6];

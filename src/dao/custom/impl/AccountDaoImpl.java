@@ -8,11 +8,11 @@ import java.util.Scanner;
 
 public class AccountDaoImpl {
 
-    public static void viewAllAccounts(List<Account> accounts){
+    public void viewAllAccounts(List<Account> accounts){
         accounts.forEach(System.out::println);
     }
 
-    public static void deleteAccount(List<Account> accounts, Scanner input){
+    public void deleteAccount(List<Account> accounts, Scanner input){
         System.out.println("Enter the account id");
         int id = input.nextInt();
         accounts.stream().filter(patient -> patient.getId() == id).findFirst();
@@ -20,14 +20,14 @@ public class AccountDaoImpl {
         accounts.stream().forEach(System.out::println);
     }
 
-    public static void findAccountById(List<Account> accounts, Scanner input){
+    public void findAccountById(List<Account> accounts, Scanner input){
         System.out.println("Enter Account id in order to Display!");
         int id = input.nextInt();
         Optional<Account> findAccount = accounts.stream().filter(account -> account.getId() == id).findFirst();
         System.out.println(findAccount);
     }
 
-    public static void updateAccount(List<Account> accounts, Scanner input){
+    public void updateAccount(List<Account> accounts, Scanner input){
         System.out.println("Enter account id in order to Update");
         int id = input.nextInt();
         Account updateAccount = accounts.get(id - 1);
@@ -56,7 +56,7 @@ public class AccountDaoImpl {
         accounts.stream().forEach(System.out::println);
     }
 
-    public static void addAccount(List<Account> accounts, Scanner input){
+    public void addAccount(List<Account> accounts, Scanner input){
         boolean addStatus = true;
         while (addStatus){
 

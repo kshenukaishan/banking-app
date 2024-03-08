@@ -1,5 +1,7 @@
 package sections;
 
+import dao.DaoFactory;
+import dao.custom.AccountDao;
 import dao.custom.impl.AccountDaoImpl;
 import models.Account;
 
@@ -7,6 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AccountMenu {
+
+    private static AccountDao accountDao = DaoFactory.getDao(DaoFactory.DaoType.ACCOUNT);
 
     public static void accountSection(List<Account> accounts, Scanner input){
 
@@ -50,22 +54,22 @@ public class AccountMenu {
     }
 
     private static void viewAllAccount(List<Account> accounts) {
-        AccountDaoImpl.viewAllAccounts(accounts);
+        accountDao.viewAll(accounts);
     }
 
     private static void deleteAccount(List<Account> accounts, Scanner input) {
-        AccountDaoImpl.deleteAccount(accounts, input);
+        accountDao.delete(accounts, input);
     }
 
     private static void updateAccount(List<Account> accounts, Scanner input) {
-        AccountDaoImpl.updateAccount(accounts, input);
+        accountDao.update(accounts, input);
     }
 
     private static void findAccount(List<Account> accounts, Scanner input) {
-        AccountDaoImpl.findAccountById(accounts, input);
+        accountDao.findById(accounts, input);
     }
 
     private static void addAccount(List<Account> accounts, Scanner input) {
-        AccountDaoImpl.addAccount(accounts, input);
+        accountDao.add(accounts, input);
     }
 }
