@@ -42,7 +42,7 @@ public class UserDao {
             input.nextLine();
 
             System.out.println("Enter new Password");
-            String newPassword = input.nextLine();
+            int newPassword = input.nextInt();
             userToUpdate.setPassword(newPassword);
             input.nextLine();
 
@@ -61,17 +61,14 @@ public class UserDao {
             System.out.println("Enter User id");
             int id = input.nextInt();
             user.setId(id);
-            input.nextLine();
 
             System.out.println("Enter user name");
             String name = input.nextLine();
             user.setName(name);
-            input.nextLine();
 
             System.out.println("Enter user password");
-            String password = input.nextLine();
+            int password = input.nextInt();
             user.setPassword(password);
-            input.nextLine();
 
             users.add(user);
 
