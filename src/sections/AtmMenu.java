@@ -46,7 +46,7 @@ public class AtmMenu {
     }
 
     private static void viewAccountDetails(List<Account> accounts, Scanner input) {
-        System.out.println("View account details");
+        AtmSection.viewAccountDetails(accounts, input);
     }
 
     private static void checkBalance(List<Account> accounts, Scanner input) {
