@@ -50,7 +50,6 @@ public class ClientDao {
             System.out.println("Enter new Address");
             String newAddress = input.nextLine();
             clientToUpdate.setAddress(newAddress);
-            input.nextLine();
 
             System.out.println("Client updated successfully!");
             updateStatus = false;

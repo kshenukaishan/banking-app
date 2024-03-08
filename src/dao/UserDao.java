@@ -50,7 +50,6 @@ public class UserDao {
             updateStatus = false;
         }
         users.stream().forEach(System.out::println);
-
     }
 
     public static void addUser(List<User> users, Scanner input){
