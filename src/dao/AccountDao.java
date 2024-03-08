@@ -73,7 +73,6 @@ public class AccountDao {
             System.out.println("Enter Holder's name");
             String name = input.nextLine();
             account.setClientName(name);
-            input.nextLine();
 
             System.out.println("Enter initial balance");
             double balance = input.nextDouble();

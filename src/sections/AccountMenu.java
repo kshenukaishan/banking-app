@@ -41,7 +41,7 @@ public class AccountMenu {
                     deleteAccount(accounts, input);
                     break;
                 case 4:
-                    viewAllAccount(accounts, input);
+                    viewAllAccount(accounts);
                     break;
                 case 5:
                     return;
@@ -68,6 +68,4 @@ public class AccountMenu {
     private static void addAccount(List<Account> accounts, Scanner input) {
         AccountDao.addAccount(accounts, input);
     }
-
-
 }
