@@ -22,7 +22,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     public void findById(List<User> users, Scanner input){
-        System.out.println("Enter Patient id in order to Display!");
+        System.out.println("Enter user id in order to Display!");
         int id = input.nextInt();
         Optional<User> findUser = users.stream().filter(user -> user.getId() == id).findFirst();
         System.out.println(findUser);
@@ -75,7 +75,7 @@ public class UserDaoImpl implements UserDao {
 
             System.out.println("User added successfully!");
 
-            System.out.println("Need to add another patient?");
+            System.out.println("Need to add another user?");
             System.out.println("(1) Yes");
             System.out.println("(2) No");
             int answer = input.nextInt();
