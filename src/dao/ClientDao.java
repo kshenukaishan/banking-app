@@ -1,6 +1,7 @@
 package dao;
 
 import models.Client;
+import models.User;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +26,37 @@ public class ClientDao {
         int id = input.nextInt();
         Optional<Client> findClient = clients.stream().filter(client -> client.getClientId() == id).findFirst();
         System.out.println(findClient);
+    }
+
+    public static void updateClient(List<Client> clients, Scanner input){
+        System.out.println("Enter the id in order to Update");
+        int id = input.nextInt();
+        Client clientToUpdate = clients.get(id - 1);
+
+        boolean updateStatus = true;
+
+        while(updateStatus){
+
+            System.out.println("Enter new Name");
+            String newName = input.nextLine();
+            clientToUpdate.setName(newName);
+            input.nextLine();
+
+            System.out.println("Enter new Account Number");
+            int newAcc = input.nextInt();
+            clientToUpdate.setAccountNumber(newAcc);
+            input.nextLine();
+
+            System.out.println("Enter new Address");
+            String newAddress = input.nextLine();
+            clientToUpdate.setAddress(newAddress);
+            input.nextLine();
+
+            System.out.println("Client updated successfully!");
+            updateStatus = false;
+        }
+        clients.stream().forEach(System.out::println);
+
     }
 
     public static void addClient(List<Client> clients, Scanner input) {

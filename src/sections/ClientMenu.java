@@ -1,5 +1,6 @@
 package sections;
 
+import dao.ClientDao;
 import models.Client;
 
 import java.util.List;
@@ -49,22 +50,22 @@ public class ClientMenu {
     }
 
     private static void addClient(List<Client> clients, Scanner input){
-        System.out.println("add client");
+        ClientDao.addClient(clients, input);
     }
 
     private static void findClientById(List<Client> clients, Scanner input){
-        System.out.println("find client");
+        ClientDao.findClientById(clients, input);
     }
 
     private static void updateClient(List<Client> clients, Scanner input){
-        System.out.println("update client");
+        ClientDao.updateClient(clients, input);
     }
 
     private static void deleteClient(List<Client> clients, Scanner input){
-        System.out.println("delete client");
+        ClientDao.deleteClient(clients, input);
     }
 
     private static void viewAllClients(List<Client> clients){
-        System.out.println("view all clients");
+        ClientDao.viewAllClient(clients);
     }
 }
