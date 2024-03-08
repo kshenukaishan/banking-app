@@ -50,7 +50,7 @@ public class AtmMenu {
     }
 
     private static void checkBalance(List<Account> accounts, Scanner input) {
-        System.out.println("Check balance");
+        AtmSection.checkBalance(accounts, input);
     }
 
     private static void withdrawMoney(List<Account> accounts, Scanner input) {

@@ -56,7 +56,18 @@ public class AtmSection {
         if(account != null) {
             System.out.println("Account Number\t:" + account.getNumber());
             System.out.println("Client name\t:" + account.getClientName());
-            System.out.println("Balance\t:" + account.getBalance());
+        } else {
+            System.out.println("Sorry account doesn't exist!");
+        }
+    }
+
+    public static void checkBalance(List<Account> accounts, Scanner input){
+        System.out.println("Enter Account Number");
+        int number = input.nextInt();
+        Optional<Account> findAccount = accounts.stream().filter(account -> account.getNumber() == number).findFirst();
+        Account account = findAccount.get();
+        if(account != null) {
+            System.out.println("Account Number\t:" + account.getBalance());
         } else {
             System.out.println("Sorry account doesn't exist!");
         }
