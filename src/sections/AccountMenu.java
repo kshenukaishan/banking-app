@@ -1,5 +1,6 @@
 package sections;
 
+import dao.AccountDao;
 import models.Account;
 
 import java.util.List;
@@ -48,24 +49,24 @@ public class AccountMenu {
         }
     }
 
-    private static void viewAllAccount(List<Account> accounts, Scanner input) {
-        System.out.println("view account");
+    private static void viewAllAccount(List<Account> accounts) {
+        AccountDao.viewAllAccounts(accounts);
     }
 
     private static void deleteAccount(List<Account> accounts, Scanner input) {
-        System.out.println("Delete account");
+        AccountDao.deleteAccount(accounts, input);
     }
 
     private static void updateAccount(List<Account> accounts, Scanner input) {
-        System.out.println("update account");
+        AccountDao.updateAccount(accounts, input);
     }
 
     private static void findAccount(List<Account> accounts, Scanner input) {
-        System.out.println("find account");
+        AccountDao.findAccountById(accounts, input);
     }
 
     private static void addAccount(List<Account> accounts, Scanner input) {
-        System.out.println("add account");
+        AccountDao.addAccount(accounts, input);
     }
 
 
