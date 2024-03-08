@@ -38,7 +38,7 @@ public class UserDao {
 
             System.out.println("Enter new Name");
             String newName = input.nextLine();
-            userToUpdate.setName(newName);
+            userToUpdate.setUserName(newName);
             input.nextLine();
 
             System.out.println("Enter new Password");
@@ -64,7 +64,8 @@ public class UserDao {
 
             System.out.println("Enter user name");
             String name = input.nextLine();
-            user.setName(name);
+            user.setUserName(name);
+            input.nextLine();
 
             System.out.println("Enter user password");
             int password = input.nextInt();
