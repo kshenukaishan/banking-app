@@ -55,18 +55,18 @@ public class AdminMenu {
     }
 
     private static void findUserById(List<User> users, Scanner input){
-        System.out.println("find user by id");
+        UserDao.findUserById(users, input);
     }
 
     private static void updateUser(List<User> users, Scanner input){
-        System.out.println("update user");
+        UserDao.updateUser(users, input);
     }
 
     private static void deleteUser(List<User> users, Scanner input){
-        System.out.println("delete user");
+        UserDao.deleteUser(users, input);
     }
 
     private static void addUser(List<User> users, Scanner input){
-        System.out.println("add user");
+        UserDao.addUser(users, input);
     }
 }
