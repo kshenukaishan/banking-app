@@ -8,11 +8,11 @@ import java.util.Scanner;
 
 public class UserDaoImpl {
 
-    public static void viewAllUsers(List<User> users){
+    public void viewAllUsers(List<User> users){
         users.forEach(System.out::println);
     }
 
-    public static void deleteUser(List<User> users, Scanner input){
+    public void deleteUser(List<User> users, Scanner input){
         System.out.println("Enter the user id");
         int id = input.nextInt();
         users.stream().filter(patient -> patient.getId() == id).findFirst();
@@ -20,14 +20,14 @@ public class UserDaoImpl {
         users.stream().forEach(System.out::println);
     }
 
-    public static void findUserById(List<User> users, Scanner input){
+    public void findUserById(List<User> users, Scanner input){
         System.out.println("Enter Patient id in order to Display!");
         int id = input.nextInt();
         Optional<User> findUser = users.stream().filter(user -> user.getId() == id).findFirst();
         System.out.println(findUser);
     }
 
-    public static void updateUser(List<User> users, Scanner input){
+    public void updateUser(List<User> users, Scanner input){
         System.out.println("Enter the id in order to Update");
         int id = input.nextInt();
         User userToUpdate = users.get(id - 1);
@@ -52,7 +52,7 @@ public class UserDaoImpl {
         users.stream().forEach(System.out::println);
     }
 
-    public static void addUser(List<User> users, Scanner input){
+    public void addUser(List<User> users, Scanner input){
         boolean addStatus = true;
         while (addStatus){
 

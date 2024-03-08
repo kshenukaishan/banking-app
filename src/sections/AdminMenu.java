@@ -1,5 +1,7 @@
 package sections;
 
+import dao.DaoFactory;
+import dao.custom.UserDao;
 import dao.custom.impl.UserDaoImpl;
 import models.User;
 
@@ -8,6 +10,7 @@ import java.util.Scanner;
 
 public class AdminMenu {
 
+    private static UserDao userDao = DaoFactory.getDao(DaoFactory.DaoType.USER);
 
     public static void adminSection(List<User> users, Scanner input){
 
@@ -52,22 +55,22 @@ public class AdminMenu {
     }
 
     private static void viewAllUsers(List<User> users){
-        UserDaoImpl.viewAllUsers(users);
+        userDao.viewAll(users);
     }
 
     private static void findUserById(List<User> users, Scanner input){
-        UserDaoImpl.findUserById(users, input);
+        userDao.findById(users, input);
     }
 
     private static void updateUser(List<User> users, Scanner input){
-        UserDaoImpl.updateUser(users, input);
+        userDao.update(users, input);
     }
 
     private static void deleteUser(List<User> users, Scanner input){
-        UserDaoImpl.deleteUser(users, input);
+        userDao.delete(users, input);
     }
 
     private static void addUser(List<User> users, Scanner input){
-        UserDaoImpl.addUser(users, input);
+        userDao.add(users, input);
     }
 }
