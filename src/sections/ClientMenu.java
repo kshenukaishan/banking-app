@@ -1,5 +1,7 @@
 package sections;
 
+import dao.DaoFactory;
+import dao.custom.ClientDao;
 import dao.custom.impl.ClientDaoImpl;
 import models.Client;
 
@@ -7,6 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ClientMenu {
+
+    private static ClientDao clientDao = DaoFactory.getDao(DaoFactory.DaoType.CLIENT);
 
     public static void clientSection(List<Client> clients, Scanner input){
 
@@ -50,22 +54,22 @@ public class ClientMenu {
     }
 
     private static void addClient(List<Client> clients, Scanner input){
-        ClientDaoImpl.addClient(clients, input);
+        clientDao.add(clients, input);
     }
 
     private static void findClientById(List<Client> clients, Scanner input){
-        ClientDaoImpl.findClientById(clients, input);
+        clientDao.findById(clients, input);
     }
 
     private static void updateClient(List<Client> clients, Scanner input){
-        ClientDaoImpl.updateClient(clients, input);
+        clientDao.update(clients, input);
     }
 
     private static void deleteClient(List<Client> clients, Scanner input){
-        ClientDaoImpl.deleteClient(clients, input);
+        clientDao.delete(clients, input);
     }
 
     private static void viewAllClients(List<Client> clients){
-        ClientDaoImpl.viewAllClient(clients);
+        clientDao.viewAll(clients);
     }
 }
