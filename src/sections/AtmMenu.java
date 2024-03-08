@@ -1,5 +1,6 @@
 package sections;
 
+import atm.AtmSection;
 import models.Account;
 
 import java.util.List;
@@ -57,7 +58,7 @@ public class AtmMenu {
     }
 
     private static void depositMoney(List<Account> accounts, Scanner input) {
-        System.out.println("Deposit money");
+        AtmSection.depositMoney(accounts, input);
     }
 
 }

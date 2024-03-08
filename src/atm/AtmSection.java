@@ -14,7 +14,11 @@ public class AtmSection {
         int number = input.nextInt();
         Optional<Account> findAccount = accounts.stream().filter(account -> account.getNumber() == number).findFirst();
         Account account = findAccount.get();
-        System.out.println(account.toString());
+        if(account != null) {
+            System.out.println(account.toString());
+        } else {
+            System.out.println("Sorry account doesn't exist!");
+        }
 
         System.out.println("Enter amount for deposit");
         double amount = input.nextDouble();
