@@ -1,18 +1,19 @@
 package dao.custom.impl;
 
+import dao.custom.AccountDao;
 import models.Account;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class AccountDaoImpl {
+public class AccountDaoImpl implements AccountDao {
 
-    public void viewAllAccounts(List<Account> accounts){
+    public void viewAll(List<Account> accounts){
         accounts.forEach(System.out::println);
     }
 
-    public void deleteAccount(List<Account> accounts, Scanner input){
+    public void delete(List<Account> accounts, Scanner input){
         System.out.println("Enter the account id");
         int id = input.nextInt();
         accounts.stream().filter(patient -> patient.getId() == id).findFirst();
@@ -20,14 +21,14 @@ public class AccountDaoImpl {
         accounts.stream().forEach(System.out::println);
     }
 
-    public void findAccountById(List<Account> accounts, Scanner input){
+    public void findById(List<Account> accounts, Scanner input){
         System.out.println("Enter Account id in order to Display!");
         int id = input.nextInt();
         Optional<Account> findAccount = accounts.stream().filter(account -> account.getId() == id).findFirst();
         System.out.println(findAccount);
     }
 
-    public void updateAccount(List<Account> accounts, Scanner input){
+    public void update(List<Account> accounts, Scanner input){
         System.out.println("Enter account id in order to Update");
         int id = input.nextInt();
         Account updateAccount = accounts.get(id - 1);
@@ -56,7 +57,7 @@ public class AccountDaoImpl {
         accounts.stream().forEach(System.out::println);
     }
 
-    public void addAccount(List<Account> accounts, Scanner input){
+    public void add(List<Account> accounts, Scanner input){
         boolean addStatus = true;
         while (addStatus){
 

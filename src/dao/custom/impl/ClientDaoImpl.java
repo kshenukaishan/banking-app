@@ -1,18 +1,19 @@
 package dao.custom.impl;
 
+import dao.custom.ClientDao;
 import models.Client;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class ClientDaoImpl {
+public class ClientDaoImpl implements ClientDao {
 
-    public void viewAllClient(List<Client> clients){
+    public void viewAll(List<Client> clients){
         clients.forEach(System.out::println);
     }
 
-    public void deleteClient(List<Client> clients, Scanner input){
+    public void delete(List<Client> clients, Scanner input){
         System.out.println("Enter the client id");
         int id = input.nextInt();
         clients.stream().filter(patient -> patient.getClientId() == id).findFirst();
@@ -20,14 +21,14 @@ public class ClientDaoImpl {
         clients.stream().forEach(System.out::println);
     }
 
-    public void findClientById(List<Client> clients, Scanner input){
+    public void findById(List<Client> clients, Scanner input){
         System.out.println("Enter Client id in order to Display!");
         int id = input.nextInt();
         Optional<Client> findClient = clients.stream().filter(client -> client.getClientId() == id).findFirst();
         System.out.println(findClient);
     }
 
-    public void updateClient(List<Client> clients, Scanner input){
+    public void update(List<Client> clients, Scanner input){
         System.out.println("Enter the id in order to Update");
         int id = input.nextInt();
         Client clientToUpdate = clients.get(id - 1);
@@ -57,7 +58,7 @@ public class ClientDaoImpl {
 
     }
 
-    public void addClient(List<Client> clients, Scanner input) {
+    public void add(List<Client> clients, Scanner input) {
         boolean addStatus = true;
         while (addStatus) {
 

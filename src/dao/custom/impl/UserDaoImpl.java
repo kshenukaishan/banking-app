@@ -1,18 +1,19 @@
 package dao.custom.impl;
 
+import dao.custom.UserDao;
 import models.User;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-public class UserDaoImpl {
+public class UserDaoImpl implements UserDao {
 
-    public void viewAllUsers(List<User> users){
+    public void viewAll(List<User> users){
         users.forEach(System.out::println);
     }
 
-    public void deleteUser(List<User> users, Scanner input){
+    public void delete(List<User> users, Scanner input){
         System.out.println("Enter the user id");
         int id = input.nextInt();
         users.stream().filter(patient -> patient.getId() == id).findFirst();
@@ -20,14 +21,14 @@ public class UserDaoImpl {
         users.stream().forEach(System.out::println);
     }
 
-    public void findUserById(List<User> users, Scanner input){
+    public void findById(List<User> users, Scanner input){
         System.out.println("Enter Patient id in order to Display!");
         int id = input.nextInt();
         Optional<User> findUser = users.stream().filter(user -> user.getId() == id).findFirst();
         System.out.println(findUser);
     }
 
-    public void updateUser(List<User> users, Scanner input){
+    public void update(List<User> users, Scanner input){
         System.out.println("Enter the id in order to Update");
         int id = input.nextInt();
         User userToUpdate = users.get(id - 1);
@@ -52,7 +53,7 @@ public class UserDaoImpl {
         users.stream().forEach(System.out::println);
     }
 
-    public void addUser(List<User> users, Scanner input){
+    public void add(List<User> users, Scanner input){
         boolean addStatus = true;
         while (addStatus){
 
