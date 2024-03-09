@@ -23,8 +23,7 @@ public class AdminMenu {
         adminMenuItems[4] = "(5) View All DUser";
         adminMenuItems[5] = "(6) Exit";
 
-        subMenuSection(users, input, adminMenuItems);
-
+            subMenuSection(users, input, adminMenuItems);
     }
 
     private static void subMenuSection(List<User> users, Scanner input, String[] adminMenuItems){

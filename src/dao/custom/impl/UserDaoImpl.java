@@ -58,6 +58,7 @@ public class UserDaoImpl implements UserDao {
         while (addStatus){
 
             User user = new User();
+
             System.out.println("Enter User id");
             int id = input.nextInt();
             user.setId(id);
