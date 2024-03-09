@@ -6,13 +6,14 @@ import sections.AtmMenu;
 import sections.MenuUtil;
 import sections.UserMenu;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
         System.out.println("Welcome to Banking System!");
         System.out.println("--------------------------");

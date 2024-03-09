@@ -5,6 +5,7 @@ import dao.custom.UserDao;
 import dao.custom.impl.UserDaoImpl;
 import models.User;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class AdminMenu {
 
     private static UserDao userDao = DaoFactory.getDao(DaoFactory.DaoType.USER);
 
-    public static void adminSection(List<User> users, Scanner input){
+    public static void adminSection(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
 
         String[] adminMenuItems = new String[6];
 
@@ -26,7 +27,7 @@ public class AdminMenu {
             subMenuSection(users, input, adminMenuItems);
     }
 
-    private static void subMenuSection(List<User> users, Scanner input, String[] adminMenuItems){
+    private static void subMenuSection(List<User> users, Scanner input, String[] adminMenuItems) throws SQLException, ClassNotFoundException {
 
         while (true){
             int selectedMenuItem = MenuUtil.printMenu(adminMenuItems, input);
@@ -69,7 +70,7 @@ public class AdminMenu {
         userDao.delete(users, input);
     }
 
-    private static void addUser(List<User> users, Scanner input){
+    private static void addUser(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
         userDao.add(users, input);
     }
 }

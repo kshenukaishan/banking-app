@@ -5,6 +5,7 @@ import dao.custom.ClientDao;
 import dao.custom.impl.ClientDaoImpl;
 import models.Client;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class ClientMenu {
 
     private static ClientDao clientDao = DaoFactory.getDao(DaoFactory.DaoType.CLIENT);
 
-    public static void clientSection(List<Client> clients, Scanner input){
+    public static void clientSection(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
 
         String[] clientMenuItems = new String[6];
 
@@ -27,7 +28,7 @@ public class ClientMenu {
 
     }
 
-    private static void clientSubMenu(List<Client> clients, Scanner input, String[] clientMenuItems){
+    private static void clientSubMenu(List<Client> clients, Scanner input, String[] clientMenuItems) throws SQLException, ClassNotFoundException {
         while (true){
             int selectedMenuItem = MenuUtil.printMenu(clientMenuItems, input);
 
@@ -53,7 +54,7 @@ public class ClientMenu {
         }
     }
 
-    private static void addClient(List<Client> clients, Scanner input){
+    private static void addClient(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
         clientDao.add(clients, input);
     }
 

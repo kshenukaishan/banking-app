@@ -5,6 +5,7 @@ import dao.custom.AccountDao;
 import dao.custom.impl.AccountDaoImpl;
 import models.Account;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class AccountMenu {
 
     private static AccountDao accountDao = DaoFactory.getDao(DaoFactory.DaoType.ACCOUNT);
 
-    public static void accountSection(List<Account> accounts, Scanner input){
+    public static void accountSection(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
 
         String[] accountMenuItems = new String[6];
 
@@ -27,7 +28,7 @@ public class AccountMenu {
 
     }
 
-    private static void accountSubMenu(List<Account> accounts, Scanner input, String[] accountMenuItems){
+    private static void accountSubMenu(List<Account> accounts, Scanner input, String[] accountMenuItems) throws SQLException, ClassNotFoundException {
         while(true){
             int selectedMenuItem = MenuUtil.printMenu(accountMenuItems, input);
 
@@ -69,7 +70,7 @@ public class AccountMenu {
         accountDao.findById(accounts, input);
     }
 
-    private static void addAccount(List<Account> accounts, Scanner input) {
+    private static void addAccount(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
         accountDao.add(accounts, input);
     }
 }

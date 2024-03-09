@@ -1,8 +1,11 @@
 package dao.custom.impl;
 
+import dao.CrudUtil;
 import dao.custom.ClientDao;
 import models.Client;
+import util.GlobalVar;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -58,31 +61,30 @@ public class ClientDaoImpl implements ClientDao {
 
     }
 
-    public void add(List<Client> clients, Scanner input) {
+    public void add(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
         boolean addStatus = true;
         while (addStatus) {
 
-            Client client = new Client();
-            System.out.println("Enter Client id");
-            int id = input.nextInt();
-            client.setClientId(id);
-
             System.out.println("Enter Client name");
             String clientName = input.nextLine();
-            client.setName(clientName);
             input.nextLine();
 
             System.out.println("Enter Client account number");
             int accountNumber = input.nextInt();
-            client.setAccountNumber(accountNumber);
             input.nextLine();
 
             System.out.println("Enter client address");
             String address = input.nextLine();
-            client.setAddress(address);
-            clients.add(client);
 
-            System.out.println("Client added successfully!");
+            Client client = new Client(0,accountNumber,clientName,address, GlobalVar.userId);
+
+            Object executedQuery = CrudUtil.execute("INSERT INTO client(client_id, account_number, name, address, user_id) VALUES (?,?,?,?,?)", client.getClientId(), client.getAccountNumber(), client.getName(), client.getAddress(), client.getUser_id());
+
+            if(executedQuery != null){
+                System.out.println("Client added successfully!");
+            } else {
+                System.out.println("Something went wrong!");
+            }
 
             System.out.println("Need to add another client?");
             System.out.println("(1) Yes");

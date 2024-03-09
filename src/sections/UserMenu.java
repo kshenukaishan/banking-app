@@ -3,12 +3,13 @@ package sections;
 import models.Account;
 import models.Client;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
 public class UserMenu {
 
-    public static void userSection(List<Client> clients, List<Account> accounts,  Scanner input){
+    public static void userSection(List<Client> clients, List<Account> accounts,  Scanner input) throws SQLException, ClassNotFoundException {
 
         String[] userMainMenuItems = new String[3];
         userMainMenuItems[0] = "(1) Clients Section";

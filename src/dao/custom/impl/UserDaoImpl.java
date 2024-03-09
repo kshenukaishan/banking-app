@@ -61,12 +61,12 @@ public class UserDaoImpl implements UserDao {
 
             System.out.println("Enter user name");
             String name = input.nextLine();
-            input.nextLine();
+            input.next();
 
             System.out.println("Enter user password");
             int password = input.nextInt();
 
-            User user = new User(0,name, password);
+            User user = new User(0, name, password);
 
             Object executedQuery = CrudUtil.execute("INSERT INTO user(id, username, password) VALUES (?,?,?)", user.getId(), user.getUserName(), user.getPassword());
 
