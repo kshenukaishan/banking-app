@@ -79,9 +79,13 @@ public class AccountDaoImpl implements AccountDao {
 
             Account account = new Account(0,number,pin,name,balance, GlobalVar.clientId);
 
-            CrudUtil.execute("INSERT INTO account(account_id, number, pin, client_name, balance, client_client_id) VALUES (?,?,?,?,?,?)", account.getAccount_id(), account.getNumber(), account.getPin(), account.getClientName(), account.getBalance(), account.getClient_client_id());
+            Object executedQuery = CrudUtil.execute("INSERT INTO account(account_id, number, pin, client_name, balance, client_client_id) VALUES (?,?,?,?,?,?)", account.getAccount_id(), account.getNumber(), account.getPin(), account.getClientName(), account.getBalance(), account.getClient_client_id());
 
-            System.out.println("Account added successfully!");
+            if(executedQuery != null){
+                System.out.println("Account added successfully!");
+            } else {
+                System.out.println("Something went wrong!");
+            }
 
             System.out.println("Need to add another account?");
             System.out.println("(1) Yes");
