@@ -1,8 +1,11 @@
 package dao.custom.impl;
 
+import dao.CrudUtil;
 import dao.custom.AccountDao;
 import models.Account;
+import util.GlobalVar;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -57,35 +60,26 @@ public class AccountDaoImpl implements AccountDao {
         accounts.stream().forEach(System.out::println);
     }
 
-    public void add(List<Account> accounts, Scanner input){
+    public void add(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
         boolean addStatus = true;
         while (addStatus){
 
-            Account account = new Account();
-
-            System.out.println("Enter Account id");
-            int id = input.nextInt();
-            account.setAccount_id(id);
-
             System.out.println("Enter Account number");
             int number = input.nextInt();
-            account.setNumber(number);
             input.nextLine();
 
             System.out.println("Enter Account pin");
             String pin = input.nextLine();
-            account.setPin(pin);
-            input.nextInt();
 
             System.out.println("Enter Holder's name");
             String name = input.nextLine();
-            account.setClientName(name);
 
             System.out.println("Enter initial balance");
             double balance = input.nextDouble();
-            account.setBalance(balance);
 
-            accounts.add(account);
+            Account account = new Account(0,number,pin,name,balance, GlobalVar.clientId);
+
+            CrudUtil.execute("INSERT INTO account(account_id, number, pin, client_name, balance, client_client_id) VALUES (?,?,?,?,?,?)", account.getAccount_id(), account.getNumber(), account.getPin(), account.getClientName(), account.getBalance(), account.getClient_client_id());
 
             System.out.println("Account added successfully!");
 
