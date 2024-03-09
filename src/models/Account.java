@@ -4,14 +4,14 @@ public class Account {
 
     private int id;
     private int number;
-    private int pin;
+    private String pin;
     private String clientName;
     private double balance;
 
     public Account() {
     }
 
-    public Account(int id, int number, int pin, String clientName, double balance) {
+    public Account(int id, int number, String pin, String clientName, double balance) {
         this.id = id;
         this.number = number;
         this.pin = pin;
@@ -35,11 +35,11 @@ public class Account {
         this.number = number;
     }
 
-    public int getPin() {
+    public String getPin() {
         return pin;
     }
 
-    public void setPin(int pin) {
+    public void setPin(String pin) {
         this.pin = pin;
     }
 

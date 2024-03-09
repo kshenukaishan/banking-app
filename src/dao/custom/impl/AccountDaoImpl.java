@@ -62,6 +62,7 @@ public class AccountDaoImpl implements AccountDao {
         while (addStatus){
 
             Account account = new Account();
+
             System.out.println("Enter Account id");
             int id = input.nextInt();
             account.setId(id);
@@ -69,6 +70,11 @@ public class AccountDaoImpl implements AccountDao {
             System.out.println("Enter Account number");
             int number = input.nextInt();
             account.setNumber(number);
+            input.nextLine();
+
+            System.out.println("Enter Account pin");
+            String pin = input.nextInt();
+            account.setPin(pin);
             input.nextLine();
 
             System.out.println("Enter Holder's name");
