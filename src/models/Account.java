@@ -7,16 +7,18 @@ public class Account {
     private String pin;
     private String clientName;
     private double balance;
+    private int client_client_id;
 
     public Account() {
     }
 
-    public Account(int account_id, int number, String pin, String clientName, double balance) {
+    public Account(int account_id, int number, String pin, String clientName, double balance, int client_client_id) {
         this.account_id = account_id;
         this.number = number;
         this.pin = pin;
         this.clientName = clientName;
         this.balance = balance;
+        this.client_client_id = client_client_id;
     }
 
     public int getAccount_id() {
@@ -59,15 +61,23 @@ public class Account {
         this.balance = balance;
     }
 
+    public int getClient_client_id() {
+        return client_client_id;
+    }
+
+    public void setClient_client_id(int client_client_id) {
+        this.client_client_id = client_client_id;
+    }
+
     @Override
     public String toString() {
         return "Account{" +
-                "id=" + account_id +
+                "account_id=" + account_id +
                 ", number=" + number +
-                ", pin=" + pin +
+                ", pin='" + pin + '\'' +
                 ", clientName='" + clientName + '\'' +
                 ", balance=" + balance +
+                ", client_client_id=" + client_client_id +
                 '}';
     }
-
 }
