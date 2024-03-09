@@ -4,15 +4,17 @@ public class Account {
 
     private int id;
     private int number;
+    private int pin;
     private String clientName;
     private double balance;
 
     public Account() {
     }
 
-    public Account(int id, int number, String clientName, double balance) {
+    public Account(int id, int number, int pin, String clientName, double balance) {
         this.id = id;
         this.number = number;
+        this.pin = pin;
         this.clientName = clientName;
         this.balance = balance;
     }
@@ -31,6 +33,14 @@ public class Account {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public int getPin() {
+        return pin;
+    }
+
+    public void setPin(int pin) {
+        this.pin = pin;
     }
 
     public String getClientName() {
@@ -54,8 +64,10 @@ public class Account {
         return "Account{" +
                 "id=" + id +
                 ", number=" + number +
+                ", pin=" + pin +
                 ", clientName='" + clientName + '\'' +
                 ", balance=" + balance +
                 '}';
     }
+
 }
