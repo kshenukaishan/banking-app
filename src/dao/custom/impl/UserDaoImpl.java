@@ -1,8 +1,10 @@
 package dao.custom.impl;
 
+import dao.CrudUtil;
 import dao.custom.UserDao;
 import models.User;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -53,28 +55,26 @@ public class UserDaoImpl implements UserDao {
         users.stream().forEach(System.out::println);
     }
 
-    public void add(List<User> users, Scanner input){
+    public void add(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
         boolean addStatus = true;
         while (addStatus){
 
-            User user = new User();
-
-            System.out.println("Enter User id");
-            int id = input.nextInt();
-            user.setId(id);
-
             System.out.println("Enter user name");
             String name = input.nextLine();
-            user.setUserName(name);
             input.nextLine();
 
             System.out.println("Enter user password");
             int password = input.nextInt();
-            user.setPassword(password);
 
-            users.add(user);
+            User user = new User(0,name, password);
 
-            System.out.println("User added successfully!");
+            Object executedQuery = CrudUtil.execute("INSERT INTO user(id, username, password) VALUES (?,?,?)", user.getId(), user.getUserName(), user.getPassword());
+
+            if(executedQuery != null){
+                System.out.println("User added successfully!");
+            } else {
+                System.out.println("Something went wrong!");
+            }
 
             System.out.println("Need to add another user?");
             System.out.println("(1) Yes");

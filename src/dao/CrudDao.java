@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -10,6 +11,6 @@ public interface CrudDao<T> {
     void update(List<T> list, Scanner input);
     void findById(List<T> list, Scanner input);
 
-    void add(List<T> list, Scanner input);
+    void add(List<T> list, Scanner input) throws SQLException, ClassNotFoundException;
 
 }
