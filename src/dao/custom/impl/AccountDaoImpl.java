@@ -16,7 +16,7 @@ public class AccountDaoImpl implements AccountDao {
     public void delete(List<Account> accounts, Scanner input){
         System.out.println("Enter the account id");
         int id = input.nextInt();
-        accounts.stream().filter(patient -> patient.getId() == id).findFirst();
+        accounts.stream().filter(patient -> patient.getAccount_id() == id).findFirst();
         System.out.println("Account has deleted!");
         accounts.stream().forEach(System.out::println);
     }
@@ -24,7 +24,7 @@ public class AccountDaoImpl implements AccountDao {
     public void findById(List<Account> accounts, Scanner input){
         System.out.println("Enter Account id in order to Display!");
         int id = input.nextInt();
-        Optional<Account> findAccount = accounts.stream().filter(account -> account.getId() == id).findFirst();
+        Optional<Account> findAccount = accounts.stream().filter(account -> account.getAccount_id() == id).findFirst();
         System.out.println(findAccount);
     }
 
@@ -65,7 +65,7 @@ public class AccountDaoImpl implements AccountDao {
 
             System.out.println("Enter Account id");
             int id = input.nextInt();
-            account.setId(id);
+            account.setAccount_id(id);
 
             System.out.println("Enter Account number");
             int number = input.nextInt();
@@ -73,9 +73,9 @@ public class AccountDaoImpl implements AccountDao {
             input.nextLine();
 
             System.out.println("Enter Account pin");
-            String pin = input.nextInt();
+            String pin = input.nextLine();
             account.setPin(pin);
-            input.nextLine();
+            input.nextInt();
 
             System.out.println("Enter Holder's name");
             String name = input.nextLine();

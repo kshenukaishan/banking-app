@@ -2,7 +2,7 @@ package models;
 
 public class Account {
 
-    private int id;
+    private int account_id;
     private int number;
     private String pin;
     private String clientName;
@@ -11,20 +11,20 @@ public class Account {
     public Account() {
     }
 
-    public Account(int id, int number, String pin, String clientName, double balance) {
-        this.id = id;
+    public Account(int account_id, int number, String pin, String clientName, double balance) {
+        this.account_id = account_id;
         this.number = number;
         this.pin = pin;
         this.clientName = clientName;
         this.balance = balance;
     }
 
-    public int getId() {
-        return id;
+    public int getAccount_id() {
+        return account_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAccount_id(int account_id) {
+        this.account_id = account_id;
     }
 
     public int getNumber() {
@@ -62,7 +62,7 @@ public class Account {
     @Override
     public String toString() {
         return "Account{" +
-                "id=" + id +
+                "id=" + account_id +
                 ", number=" + number +
                 ", pin=" + pin +
                 ", clientName='" + clientName + '\'' +
