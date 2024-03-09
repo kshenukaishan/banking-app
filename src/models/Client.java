@@ -6,15 +6,17 @@ public class Client {
     private int accountNumber;
     private String name;
     private String address;
+    private int user_id;
 
     public Client() {
     }
 
-    public Client(int clientId, int accountNumber, String name, String address) {
+    public Client(int clientId, int accountNumber, String name, String address, int user_id) {
         this.clientId = clientId;
         this.accountNumber = accountNumber;
         this.name = name;
         this.address = address;
+        this.user_id = user_id;
     }
 
     public int getClientId() {
@@ -49,6 +51,14 @@ public class Client {
         this.address = address;
     }
 
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -56,6 +66,8 @@ public class Client {
                 ", accountNumber=" + accountNumber +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
+                ", user_id=" + user_id +
                 '}';
     }
+
 }
