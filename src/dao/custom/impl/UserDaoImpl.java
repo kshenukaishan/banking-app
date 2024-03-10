@@ -41,7 +41,7 @@ public class UserDaoImpl implements UserDao {
 
             System.out.println("Enter new Name");
             String newName = input.nextLine();
-            userToUpdate.setUserName(newName);
+            userToUpdate.setOfficerName(newName);
             input.nextLine();
 
             System.out.println("Enter new Password");
@@ -59,16 +59,16 @@ public class UserDaoImpl implements UserDao {
         boolean addStatus = true;
         while (addStatus){
 
-            System.out.println("Enter user name");
-            String name = input.nextLine();
-            input.next();
-
             System.out.println("Enter user password");
             int password = input.nextInt();
+            input.nextLine();
 
-            User user = new User(0, name, password);
+            System.out.println("Enter user name");
+            String userName = input.nextLine();
 
-            Object executedQuery = CrudUtil.execute("INSERT INTO user(id, username, password) VALUES (?,?,?)", user.getId(), user.getUserName(), user.getPassword());
+            User user = new User(0, userName, password);
+
+            Object executedQuery = CrudUtil.execute("INSERT INTO user(id, officer_name, password) VALUES (?,?,?)", user.getId(), user.getOfficerName(), user.getPassword());
 
             if(executedQuery != null){
                 System.out.println("User added successfully!");

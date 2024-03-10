@@ -65,13 +65,12 @@ public class ClientDaoImpl implements ClientDao {
         boolean addStatus = true;
         while (addStatus) {
 
-            System.out.println("Enter Client name");
-            String clientName = input.nextLine();
-            input.nextLine();
-
             System.out.println("Enter Client account number");
             int accountNumber = input.nextInt();
             input.nextLine();
+
+            System.out.println("Enter Client name");
+            String clientName = input.nextLine();
 
             System.out.println("Enter client address");
             String address = input.nextLine();

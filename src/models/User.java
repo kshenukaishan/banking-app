@@ -3,15 +3,15 @@ package models;
 public class User {
 
     private int id;
-    private String userName;
+    private String officerName;
     private int password;
 
     public User() {
     }
 
-    public User(int id, String userName, int password) {
+    public User(int id, String officerName, int password) {
         this.id = id;
-        this.userName = userName;
+        this.officerName = officerName;
         this.password = password;
     }
 
@@ -23,12 +23,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getOfficerName() {
+        return officerName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setOfficerName(String officerName) {
+        this.officerName = officerName;
     }
 
     public int getPassword() {
@@ -43,7 +43,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + userName + '\'' +
+                ", name='" + officerName + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
