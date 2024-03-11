@@ -28,9 +28,9 @@ public class AccountDaoImpl implements AccountDao {
     public void delete(List<Account> accounts, Scanner input){
         System.out.println("Enter the account id");
         int id = input.nextInt();
-        accounts.stream().filter(patient -> patient.getAccount_id() == id).findFirst();
-        System.out.println("Account has deleted!");
-        accounts.stream().forEach(System.out::println);
+
+
+
     }
 
     public void findById(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {

@@ -66,7 +66,7 @@ public class ClientMenu {
         clientDao.update(clients, input);
     }
 
-    private static void deleteClient(List<Client> clients, Scanner input){
+    private static void deleteClient(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
         clientDao.delete(clients, input);
     }
 

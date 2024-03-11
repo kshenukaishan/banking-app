@@ -58,7 +58,7 @@ public class AccountMenu {
         accountDao.viewAll(accounts);
     }
 
-    private static void deleteAccount(List<Account> accounts, Scanner input) {
+    private static void deleteAccount(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
         accountDao.delete(accounts, input);
     }
 
