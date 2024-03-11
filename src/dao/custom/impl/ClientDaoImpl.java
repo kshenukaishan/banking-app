@@ -5,7 +5,9 @@ import dao.custom.ClientDao;
 import models.Client;
 import util.GlobalVar;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -24,11 +26,18 @@ public class ClientDaoImpl implements ClientDao {
         clients.stream().forEach(System.out::println);
     }
 
-    public void findById(List<Client> clients, Scanner input){
+    public void findById(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter Client id in order to Display!");
         int id = input.nextInt();
-        Optional<Client> findClient = clients.stream().filter(client -> client.getClientId() == id).findFirst();
-        System.out.println(findClient);
+
+        ResultSet set = CrudUtil.execute("SELECT * FROM client WHERE client_id = ?", id);
+        ArrayList<Client> clientFind = new ArrayList<>();
+
+        while(set.next()){
+            clientFind.add(new Client(set.getInt(1), set.getInt(2), set.getString(3), set.getString(4), set.getInt(5)));
+        }
+        System.out.println(clientFind);
+
     }
 
     public void update(List<Client> clients, Scanner input){

@@ -5,7 +5,9 @@ import dao.custom.AccountDao;
 import models.Account;
 import util.GlobalVar;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -24,11 +26,19 @@ public class AccountDaoImpl implements AccountDao {
         accounts.stream().forEach(System.out::println);
     }
 
-    public void findById(List<Account> accounts, Scanner input){
+    public void findById(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter Account id in order to Display!");
         int id = input.nextInt();
-        Optional<Account> findAccount = accounts.stream().filter(account -> account.getAccount_id() == id).findFirst();
-        System.out.println(findAccount);
+
+        ResultSet set = CrudUtil.execute("SELECT * FROM account WHERE account_id = ?", id);
+        ArrayList<Account> accountFind = new ArrayList<>();
+
+        while(set.next()){
+            accountFind.add(new Account(set.getInt(1),set.getInt(2),set.getString(3),set.getString(4),set.getDouble(5),set.getInt(6)));
+        }
+
+        System.out.println(accountFind);
+
     }
 
     public void update(List<Account> accounts, Scanner input){
