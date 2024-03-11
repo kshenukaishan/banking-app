@@ -3,6 +3,7 @@ package dao.custom.impl;
 import dao.CrudUtil;
 import dao.custom.ClientDao;
 import models.Client;
+import models.User;
 import util.GlobalVar;
 
 import java.sql.ResultSet;
@@ -14,8 +15,14 @@ import java.util.Scanner;
 
 public class ClientDaoImpl implements ClientDao {
 
-    public void viewAll(List<Client> clients){
-        clients.forEach(System.out::println);
+    public void viewAll(List<Client> clients) throws SQLException, ClassNotFoundException {
+        ResultSet set =  CrudUtil.execute("SELECT * FROM client");
+        ArrayList<Client> clientFind = new ArrayList<>();
+
+        while (set.next()){
+            clientFind.add(new Client(set.getInt(1), set.getInt(2), set.getString(3),set.getString(4),set.getInt(5)));
+        }
+        System.out.println(clientFind);
     }
 
     public void delete(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
