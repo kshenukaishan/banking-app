@@ -70,7 +70,7 @@ public class ClientMenu {
         clientDao.delete(clients, input);
     }
 
-    private static void viewAllClients(List<Client> clients){
+    private static void viewAllClients(List<Client> clients) throws SQLException, ClassNotFoundException {
         clientDao.viewAll(clients);
     }
 }

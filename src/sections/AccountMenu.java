@@ -54,7 +54,7 @@ public class AccountMenu {
         }
     }
 
-    private static void viewAllAccount(List<Account> accounts) {
+    private static void viewAllAccount(List<Account> accounts) throws SQLException, ClassNotFoundException {
         accountDao.viewAll(accounts);
     }
 

@@ -3,6 +3,7 @@ package dao.custom.impl;
 import dao.CrudUtil;
 import dao.custom.AccountDao;
 import models.Account;
+import models.User;
 import util.GlobalVar;
 
 import java.sql.ResultSet;
@@ -14,8 +15,14 @@ import java.util.Scanner;
 
 public class AccountDaoImpl implements AccountDao {
 
-    public void viewAll(List<Account> accounts){
-        accounts.forEach(System.out::println);
+    public void viewAll(List<Account> accounts) throws SQLException, ClassNotFoundException {
+        ResultSet set =  CrudUtil.execute("SELECT * FROM account");
+        ArrayList<Account> accountsFind = new ArrayList<>();
+
+        while (set.next()){
+            accountsFind.add(new Account(set.getInt(1),set.getInt(2),set.getString(3),set.getString(4),set.getDouble(5),set.getInt(6)));
+        }
+        System.out.println(accountsFind);
     }
 
     public void delete(List<Account> accounts, Scanner input){
