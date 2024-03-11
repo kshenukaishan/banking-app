@@ -58,7 +58,7 @@ public class ClientMenu {
         clientDao.add(clients, input);
     }
 
-    private static void findClientById(List<Client> clients, Scanner input){
+    private static void findClientById(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
         clientDao.findById(clients, input);
     }
 

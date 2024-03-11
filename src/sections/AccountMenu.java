@@ -66,7 +66,7 @@ public class AccountMenu {
         accountDao.update(accounts, input);
     }
 
-    private static void findAccount(List<Account> accounts, Scanner input) {
+    private static void findAccount(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
         accountDao.findById(accounts, input);
     }
 

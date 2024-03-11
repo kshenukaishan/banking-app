@@ -4,7 +4,9 @@ import dao.CrudUtil;
 import dao.custom.UserDao;
 import models.User;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -23,11 +25,18 @@ public class UserDaoImpl implements UserDao {
         users.stream().forEach(System.out::println);
     }
 
-    public void findById(List<User> users, Scanner input){
+    public void findById(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter user id in order to Display!");
         int id = input.nextInt();
-        Optional<User> findUser = users.stream().filter(user -> user.getId() == id).findFirst();
-        System.out.println(findUser);
+
+        ResultSet set = CrudUtil.execute("SELECT * FROM user WHERE id = ?", id);
+            ArrayList<User> usersFind = new ArrayList<>();
+        while(set.next()){
+            usersFind.add(new User(set.getInt(1), set.getString(2), set.getInt(3)));
+        }
+
+        System.out.println(usersFind);
+
     }
 
     public void update(List<User> users, Scanner input){

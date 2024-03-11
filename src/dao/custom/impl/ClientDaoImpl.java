@@ -75,7 +75,10 @@ public class ClientDaoImpl implements ClientDao {
             System.out.println("Enter client address");
             String address = input.nextLine();
 
-            Client client = new Client(0,accountNumber,clientName,address, GlobalVar.userId);
+            System.out.println("Enter User id here");
+            int userId = input.nextInt();
+
+            Client client = new Client(0,accountNumber,clientName,address, userId);
 
             Object executedQuery = CrudUtil.execute("INSERT INTO client(client_id, account_number, name, address, user_id) VALUES (?,?,?,?,?)", client.getClientId(), client.getAccountNumber(), client.getName(), client.getAddress(), client.getUser_id());
 

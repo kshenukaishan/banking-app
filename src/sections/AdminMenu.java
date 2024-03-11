@@ -58,7 +58,7 @@ public class AdminMenu {
         userDao.viewAll(users);
     }
 
-    private static void findUserById(List<User> users, Scanner input){
+    private static void findUserById(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
         userDao.findById(users, input);
     }
 

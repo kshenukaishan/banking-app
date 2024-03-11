@@ -77,7 +77,10 @@ public class AccountDaoImpl implements AccountDao {
             System.out.println("Enter initial balance");
             double balance = input.nextDouble();
 
-            Account account = new Account(0,number,pin,name,balance, GlobalVar.clientId);
+            System.out.println("Enter client id here");
+            int clientId = input.nextInt();
+
+            Account account = new Account(0,number,pin,name,balance, clientId);
 
             Object executedQuery = CrudUtil.execute("INSERT INTO account(account_id, number, pin, client_name, balance, client_client_id) VALUES (?,?,?,?,?,?)", account.getAccount_id(), account.getNumber(), account.getPin(), account.getClientName(), account.getBalance(), account.getClient_client_id());
 
