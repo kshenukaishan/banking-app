@@ -66,7 +66,7 @@ public class AdminMenu {
         userDao.update(users, input);
     }
 
-    private static void deleteUser(List<User> users, Scanner input){
+    private static void deleteUser(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
         userDao.delete(users, input);
     }
 

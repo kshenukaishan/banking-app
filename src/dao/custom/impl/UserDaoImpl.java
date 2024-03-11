@@ -23,12 +23,15 @@ public class UserDaoImpl implements UserDao {
         System.out.println(usersFind);
     }
 
-    public void delete(List<User> users, Scanner input){
+    public void delete(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter the user id");
         int id = input.nextInt();
-        users.stream().filter(patient -> patient.getId() == id).findFirst();
-        System.out.println("User has deleted!");
-        users.stream().forEach(System.out::println);
+
+        if(CrudUtil.execute("DELETE FROM user WHERE id = ?", id)){
+            System.out.println("User has deleted");
+        } else {
+            System.out.println("Sorry user cannot be delete");
+        }
     }
 
     public void findById(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
