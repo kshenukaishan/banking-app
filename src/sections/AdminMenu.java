@@ -54,7 +54,7 @@ public class AdminMenu {
         }
     }
 
-    private static void viewAllUsers(List<User> users){
+    private static void viewAllUsers(List<User> users) throws SQLException, ClassNotFoundException {
         userDao.viewAll(users);
     }
 

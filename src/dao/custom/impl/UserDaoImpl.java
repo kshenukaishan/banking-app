@@ -13,8 +13,14 @@ import java.util.Scanner;
 
 public class UserDaoImpl implements UserDao {
 
-    public void viewAll(List<User> users){
-        users.forEach(System.out::println);
+    public void viewAll(List<User> users) throws SQLException, ClassNotFoundException {
+         ResultSet set =  CrudUtil.execute("SELECT * FROM user");
+         ArrayList<User> usersFind = new ArrayList<>();
+
+         while (set.next()){
+             usersFind.add(new User(set.getInt(1), set.getString(2), set.getInt(3)));
+         }
+        System.out.println(usersFind);
     }
 
     public void delete(List<User> users, Scanner input){
