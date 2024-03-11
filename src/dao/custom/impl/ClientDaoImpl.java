@@ -18,12 +18,15 @@ public class ClientDaoImpl implements ClientDao {
         clients.forEach(System.out::println);
     }
 
-    public void delete(List<Client> clients, Scanner input){
+    public void delete(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter the client id");
         int id = input.nextInt();
-        clients.stream().filter(patient -> patient.getClientId() == id).findFirst();
-        System.out.println("Client has deleted!");
-        clients.stream().forEach(System.out::println);
+
+        if(CrudUtil.execute("DELETE FROM client WHERE client_id = ?", id)){
+            System.out.println("Client has deleted");
+        } else {
+            System.out.println("Sorry client cannot be delete");
+        }
     }
 
     public void findById(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
