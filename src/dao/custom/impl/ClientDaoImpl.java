@@ -50,28 +50,29 @@ public class ClientDaoImpl implements ClientDao {
 
     }
 
-    public void update(List<Client> clients, Scanner input){
+    public void update(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter the id in order to Update");
         int id = input.nextInt();
-        Client clientToUpdate = clients.get(id - 1);
+//        Client clientToUpdate = clients.get(id - 1);
 
         boolean updateStatus = true;
 
         while(updateStatus){
 
-            System.out.println("Enter new Name");
-            String newName = input.nextLine();
-            clientToUpdate.setName(newName);
-            input.nextLine();
+            String newName, newAddress;
+            int newAccountNumber;
 
             System.out.println("Enter new Account Number");
-            int newAcc = input.nextInt();
-            clientToUpdate.setAccountNumber(newAcc);
+            newAccountNumber = input.nextInt();
+
+            System.out.println("Enter new Name");
+            newName = input.nextLine();
             input.nextLine();
 
             System.out.println("Enter new Address");
-            String newAddress = input.nextLine();
-            clientToUpdate.setAddress(newAddress);
+            newAddress = input.nextLine();
+
+            CrudUtil.execute("UPDATE client SET name = ?, account_number = ?, address = ? WHERE client_id = ?", newName, newAccountNumber, newAddress, id);
 
             System.out.println("Client updated successfully!");
             updateStatus = false;
