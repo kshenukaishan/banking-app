@@ -48,24 +48,23 @@ public class UserDaoImpl implements UserDao {
 
     }
 
-    public void update(List<User> users, Scanner input){
+    public void update(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter the id in order to Update");
         int id = input.nextInt();
-        User userToUpdate = users.get(id - 1);
+//        User userToUpdate = users.get(id - 1);
 
         boolean updateStatus = true;
 
         while(updateStatus){
 
-            System.out.println("Enter new Name");
-            String newName = input.nextLine();
-            userToUpdate.setOfficerName(newName);
-            input.nextLine();
-
             System.out.println("Enter new Password");
             int newPassword = input.nextInt();
-            userToUpdate.setPassword(newPassword);
             input.nextLine();
+
+            System.out.println("Enter new Name");
+            String newName = input.nextLine();
+
+            CrudUtil.execute("UPDATE user SET officer_name = ?, password = ? WHERE id = ?", newName, newPassword, id);
 
             System.out.println("User updated successfully!");
             updateStatus = false;

@@ -62,7 +62,7 @@ public class AdminMenu {
         userDao.findById(users, input);
     }
 
-    private static void updateUser(List<User> users, Scanner input){
+    private static void updateUser(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
         userDao.update(users, input);
     }
 

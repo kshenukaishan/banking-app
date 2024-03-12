@@ -25,11 +25,15 @@ public class AccountDaoImpl implements AccountDao {
         System.out.println(accountsFind);
     }
 
-    public void delete(List<Account> accounts, Scanner input){
+    public void delete(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter the account id");
         int id = input.nextInt();
 
-
+        if(CrudUtil.execute("DELETE FROM account WHERE account_id = ?", id)){
+            System.out.println("Account has deleted");
+        } else {
+            System.out.println("Sorry client cannot be delete");
+        }
 
     }
 

@@ -62,7 +62,7 @@ public class ClientMenu {
         clientDao.findById(clients, input);
     }
 
-    private static void updateClient(List<Client> clients, Scanner input){
+    private static void updateClient(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
         clientDao.update(clients, input);
     }
 

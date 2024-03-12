@@ -62,7 +62,7 @@ public class AccountMenu {
         accountDao.delete(accounts, input);
     }
 
-    private static void updateAccount(List<Account> accounts, Scanner input) {
+    private static void updateAccount(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
         accountDao.update(accounts, input);
     }
 
