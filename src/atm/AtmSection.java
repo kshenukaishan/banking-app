@@ -12,23 +12,17 @@ import java.util.Scanner;
 
 public class AtmSection {
 
-    public static void depositMoney(List<Account> accounts, Scanner input){
+    public static void depositMoney(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
 
         System.out.println("Enter Account Number");
         int number = input.nextInt();
-        Optional<Account> findAccount = accounts.stream().filter(account -> account.getNumber() == number).findFirst();
-        Account account = findAccount.get();
-        if(account != null) {
-            System.out.println(account.toString());
-        } else {
-            System.out.println("Sorry account doesn't exist!");
-        }
 
-        System.out.println("Enter amount for deposit");
+        System.out.println("Enter amount you want to deposit?");
         double amount = input.nextDouble();
 
-        account.setBalance(account.getBalance() + amount);
-        System.out.println("Your total balance : " + account.getBalance());
+        CrudUtil.execute("UPDATE account SET balance = balance + ? WHERE number = ?", amount, number);
+
+        System.out.println("Deposit completed!");
 
     }
 
@@ -37,7 +31,7 @@ public class AtmSection {
         System.out.println("Enter Account Number");
         int number = input.nextInt();
 
-        System.out.println("How do you want to withdraw?");
+        System.out.println("Enter amount you want to withdraw?");
         double amount = input.nextDouble();
 
         CrudUtil.execute("UPDATE account SET balance = balance - ? WHERE number = ?", amount, number);

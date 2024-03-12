@@ -58,7 +58,7 @@ public class AtmMenu {
         AtmSection.withdrawMoney(accounts, input);
     }
 
-    private static void depositMoney(List<Account> accounts, Scanner input) {
+    private static void depositMoney(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
         AtmSection.depositMoney(accounts, input);
     }
 
