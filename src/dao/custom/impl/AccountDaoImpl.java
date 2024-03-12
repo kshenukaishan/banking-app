@@ -52,10 +52,10 @@ public class AccountDaoImpl implements AccountDao {
 
     }
 
-    public void update(List<Account> accounts, Scanner input){
+    public void update(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter account id in order to Update");
         int id = input.nextInt();
-        Account updateAccount = accounts.get(id - 1);
+//        Account updateAccount = accounts.get(id - 1);
 
         boolean updateStatus = true;
 
@@ -63,17 +63,18 @@ public class AccountDaoImpl implements AccountDao {
 
             System.out.println("Enter new Number");
             int newNumber = input.nextInt();
-            updateAccount.setNumber(newNumber);
             input.nextLine();
 
             System.out.println("Enter new Client name");
             String newName = input.nextLine();
-            updateAccount.setClientName(newName);
-            input.nextLine();
+
+            System.out.println("Enter new Pin Number");
+            int newPin = input.nextInt();
 
             System.out.println("Enter new Balance");
             double newBalance = input.nextDouble();
-            updateAccount.setBalance(newBalance);
+
+            CrudUtil.execute("UPDATE account SET number = ?, pin = ?, client_name = ?, balance = ? WHERE account_id = ?", newNumber, newPin, newName, newBalance, id);
 
             System.out.println("Account updated successfully!");
             updateStatus = false;
