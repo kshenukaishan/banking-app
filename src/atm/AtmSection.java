@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class AtmSection {
 
-    public static void depositMoney(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
+    public static void depositMoney(Scanner input) throws SQLException, ClassNotFoundException {
 
         System.out.println("Enter Account Number");
         int number = input.nextInt();
@@ -26,7 +26,7 @@ public class AtmSection {
 
     }
 
-    public static void withdrawMoney(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
+    public static void withdrawMoney(Scanner input) throws SQLException, ClassNotFoundException {
 
         System.out.println("Enter Account Number");
         int number = input.nextInt();
@@ -40,7 +40,7 @@ public class AtmSection {
 
     }
 
-    public static void viewAccountDetails(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
+    public static void viewAccountDetails(Scanner input) throws SQLException, ClassNotFoundException {
 
         System.out.println("Enter Account Number");
         int number = input.nextInt();
@@ -58,7 +58,7 @@ public class AtmSection {
         });
     }
 
-    public static void checkBalance(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
+    public static void checkBalance(Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter Account Number");
         int number = input.nextInt();
 

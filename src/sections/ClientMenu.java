@@ -13,7 +13,7 @@ public class ClientMenu {
 
     private static ClientDao clientDao = DaoFactory.getDao(DaoFactory.DaoType.CLIENT);
 
-    public static void clientSection(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
+    public static void clientSection(Scanner input) throws SQLException, ClassNotFoundException {
 
         String[] clientMenuItems = new String[6];
 
@@ -24,29 +24,29 @@ public class ClientMenu {
         clientMenuItems[4] = "(5) View All Clients";
         clientMenuItems[5] = "(6) Exit";
 
-        clientSubMenu(clients, input, clientMenuItems);
+        clientSubMenu(input, clientMenuItems);
 
     }
 
-    private static void clientSubMenu(List<Client> clients, Scanner input, String[] clientMenuItems) throws SQLException, ClassNotFoundException {
+    private static void clientSubMenu(Scanner input, String[] clientMenuItems) throws SQLException, ClassNotFoundException {
         while (true){
             int selectedMenuItem = MenuUtil.printMenu(clientMenuItems, input);
 
             switch (selectedMenuItem){
                 case 0:
-                    addClient(clients, input);
+                    addClient(input);
                     break;
                 case 1:
-                    findClientById(clients, input);
+                    findClientById(input);
                     break;
                 case 2:
-                    updateClient(clients, input);
+                    updateClient(input);
                     break;
                 case 3:
-                    deleteClient(clients, input);
+                    deleteClient(input);
                     break;
                 case 4:
-                    viewAllClients(clients);
+                    viewAllClients();
                     break;
                 case 5:
                     return;
@@ -54,23 +54,23 @@ public class ClientMenu {
         }
     }
 
-    private static void addClient(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
-        clientDao.add(clients, input);
+    private static void addClient(Scanner input) throws SQLException, ClassNotFoundException {
+        clientDao.add(input);
     }
 
-    private static void findClientById(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
-        clientDao.findById(clients, input);
+    private static void findClientById(Scanner input) throws SQLException, ClassNotFoundException {
+        clientDao.findById(input);
     }
 
-    private static void updateClient(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
-        clientDao.update(clients, input);
+    private static void updateClient(Scanner input) throws SQLException, ClassNotFoundException {
+        clientDao.update(input);
     }
 
-    private static void deleteClient(List<Client> clients, Scanner input) throws SQLException, ClassNotFoundException {
-        clientDao.delete(clients, input);
+    private static void deleteClient(Scanner input) throws SQLException, ClassNotFoundException {
+        clientDao.delete(input);
     }
 
-    private static void viewAllClients(List<Client> clients) throws SQLException, ClassNotFoundException {
-        clientDao.viewAll(clients);
+    private static void viewAllClients() throws SQLException, ClassNotFoundException {
+        clientDao.viewAll();
     }
 }

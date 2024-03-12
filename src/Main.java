@@ -38,15 +38,15 @@ public class Main {
             switch (selectedMenuItem){
                 case 0:
                     System.out.println("You are in Admin Section");
-                    AdminMenu.adminSection(users, input);
+                    AdminMenu.adminSection(input);
                     break;
                 case 1:
                     System.out.println("You are in User Section");
-                    UserMenu.userSection(clients, accounts, input);
+                    UserMenu.userSection(input);
                     break;
                 case 2:
                     System.out.println("You are in Client section");
-                    AtmMenu.atmSection(accounts, input);
+                    AtmMenu.atmSection(input);
                     break;
                 case 3:
                     System.out.println("Thank you!");

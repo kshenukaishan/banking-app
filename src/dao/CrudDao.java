@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public interface CrudDao<T> {
 
-    void viewAll(List<T> list) throws SQLException, ClassNotFoundException;
-    void delete(List<T> list, Scanner input) throws SQLException, ClassNotFoundException;
-    void update(List<T> list, Scanner input) throws SQLException, ClassNotFoundException;
-    void findById(List<T> list, Scanner input) throws SQLException, ClassNotFoundException;
+    void viewAll() throws SQLException, ClassNotFoundException;
+    void delete(Scanner input) throws SQLException, ClassNotFoundException;
+    void update(Scanner input) throws SQLException, ClassNotFoundException;
+    void findById(Scanner input) throws SQLException, ClassNotFoundException;
 
-    void add(List<T> list, Scanner input) throws SQLException, ClassNotFoundException;
+    void add(Scanner input) throws SQLException, ClassNotFoundException;
 
 }

@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class UserDaoImpl implements UserDao {
 
-    public void viewAll(List<User> users) throws SQLException, ClassNotFoundException {
+    public void viewAll() throws SQLException, ClassNotFoundException {
          ResultSet set =  CrudUtil.execute("SELECT * FROM user");
          ArrayList<User> usersFind = new ArrayList<>();
 
@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao {
         System.out.println(usersFind);
     }
 
-    public void delete(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
+    public void delete(Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter the user id");
         int id = input.nextInt();
 
@@ -34,7 +34,7 @@ public class UserDaoImpl implements UserDao {
         }
     }
 
-    public void findById(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
+    public void findById(Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter user id in order to Display!");
         int id = input.nextInt();
 
@@ -48,7 +48,7 @@ public class UserDaoImpl implements UserDao {
 
     }
 
-    public void update(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
+    public void update(Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter the id in order to Update");
         int id = input.nextInt();
 //        User userToUpdate = users.get(id - 1);
@@ -69,10 +69,9 @@ public class UserDaoImpl implements UserDao {
             System.out.println("User updated successfully!");
             updateStatus = false;
         }
-        users.stream().forEach(System.out::println);
     }
 
-    public void add(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
+    public void add(Scanner input) throws SQLException, ClassNotFoundException {
         boolean addStatus = true;
         while (addStatus){
 
@@ -104,6 +103,5 @@ public class UserDaoImpl implements UserDao {
                 addStatus = true;
             }
         }
-        users.stream().forEach(System.out::println);
     }
 }

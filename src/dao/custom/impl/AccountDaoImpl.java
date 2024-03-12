@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public class AccountDaoImpl implements AccountDao {
 
-    public void viewAll(List<Account> accounts) throws SQLException, ClassNotFoundException {
+    public void viewAll() throws SQLException, ClassNotFoundException {
         ResultSet set =  CrudUtil.execute("SELECT * FROM account");
         ArrayList<Account> accountsFind = new ArrayList<>();
 
@@ -25,7 +25,7 @@ public class AccountDaoImpl implements AccountDao {
         System.out.println(accountsFind);
     }
 
-    public void delete(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
+    public void delete(Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter the account id");
         int id = input.nextInt();
 
@@ -37,7 +37,7 @@ public class AccountDaoImpl implements AccountDao {
 
     }
 
-    public void findById(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
+    public void findById(Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter Account id in order to Display!");
         int id = input.nextInt();
 
@@ -52,7 +52,7 @@ public class AccountDaoImpl implements AccountDao {
 
     }
 
-    public void update(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
+    public void update(Scanner input) throws SQLException, ClassNotFoundException {
         System.out.println("Enter account id in order to Update");
         int id = input.nextInt();
 //        Account updateAccount = accounts.get(id - 1);
@@ -79,10 +79,9 @@ public class AccountDaoImpl implements AccountDao {
             System.out.println("Account updated successfully!");
             updateStatus = false;
         }
-        accounts.stream().forEach(System.out::println);
     }
 
-    public void add(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
+    public void add(Scanner input) throws SQLException, ClassNotFoundException {
         boolean addStatus = true;
         while (addStatus){
 
@@ -123,7 +122,5 @@ public class AccountDaoImpl implements AccountDao {
                 addStatus = true;
             }
         }
-        accounts.stream().forEach(System.out::println);
     }
-
 }

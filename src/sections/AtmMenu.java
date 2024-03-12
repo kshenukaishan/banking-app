@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class AtmMenu {
 
 
-    public static void atmSection(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
+    public static void atmSection(Scanner input) throws SQLException, ClassNotFoundException {
 
         String[] atmMenuItems = new String[5];
 
@@ -20,25 +20,25 @@ public class AtmMenu {
         atmMenuItems[3] = "(4) View account details";
         atmMenuItems[4] = "(5) Exit";
 
-        atmSubMenuSection(accounts, input, atmMenuItems);
+        atmSubMenuSection(input, atmMenuItems);
 
     }
 
-    private static void atmSubMenuSection(List<Account> accounts, Scanner input, String[] atmMenuItems) throws SQLException, ClassNotFoundException {
+    private static void atmSubMenuSection(Scanner input, String[] atmMenuItems) throws SQLException, ClassNotFoundException {
         while (true){
             int selectedMenuItem = MenuUtil.printMenu(atmMenuItems, input);
             switch (selectedMenuItem){
                 case 0:
-                    depositMoney(accounts, input);
+                    depositMoney(input);
                     break;
                 case 1:
-                    withdrawMoney(accounts, input);
+                    withdrawMoney(input);
                     break;
                 case 2:
-                    checkBalance(accounts, input);
+                    checkBalance(input);
                     break;
                 case 3:
-                    viewAccountDetails(accounts, input);
+                    viewAccountDetails(input);
                     break;
                 case 4:
                     return;
@@ -46,20 +46,20 @@ public class AtmMenu {
         }
     }
 
-    private static void viewAccountDetails(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
-        AtmSection.viewAccountDetails(accounts, input);
+    private static void viewAccountDetails(Scanner input) throws SQLException, ClassNotFoundException {
+        AtmSection.viewAccountDetails(input);
     }
 
-    private static void checkBalance(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
-        AtmSection.checkBalance(accounts, input);
+    private static void checkBalance(Scanner input) throws SQLException, ClassNotFoundException {
+        AtmSection.checkBalance(input);
     }
 
-    private static void withdrawMoney(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
-        AtmSection.withdrawMoney(accounts, input);
+    private static void withdrawMoney(Scanner input) throws SQLException, ClassNotFoundException {
+        AtmSection.withdrawMoney(input);
     }
 
-    private static void depositMoney(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
-        AtmSection.depositMoney(accounts, input);
+    private static void depositMoney(Scanner input) throws SQLException, ClassNotFoundException {
+        AtmSection.depositMoney(input);
     }
 
 }

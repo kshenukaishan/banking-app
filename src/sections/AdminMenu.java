@@ -13,7 +13,7 @@ public class AdminMenu {
 
     private static UserDao userDao = DaoFactory.getDao(DaoFactory.DaoType.USER);
 
-    public static void adminSection(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
+    public static void adminSection(Scanner input) throws SQLException, ClassNotFoundException {
 
         String[] adminMenuItems = new String[6];
 
@@ -24,29 +24,29 @@ public class AdminMenu {
         adminMenuItems[4] = "(5) View All DUser";
         adminMenuItems[5] = "(6) Exit";
 
-            subMenuSection(users, input, adminMenuItems);
+            subMenuSection(input, adminMenuItems);
     }
 
-    private static void subMenuSection(List<User> users, Scanner input, String[] adminMenuItems) throws SQLException, ClassNotFoundException {
+    private static void subMenuSection(Scanner input, String[] adminMenuItems) throws SQLException, ClassNotFoundException {
 
         while (true){
             int selectedMenuItem = MenuUtil.printMenu(adminMenuItems, input);
 
             switch (selectedMenuItem){
                 case 0:
-                    addUser(users, input);
+                    addUser(input);
                     break;
                 case 1:
-                    findUserById(users, input);
+                    findUserById(input);
                     break;
                 case 2:
-                    updateUser(users, input);
+                    updateUser(input);
                     break;
                 case 3:
-                    deleteUser(users, input);
+                    deleteUser(input);
                     break;
                 case 4:
-                    viewAllUsers(users);
+                    viewAllUsers();
                     break;
                 case 5:
                     return;
@@ -54,23 +54,23 @@ public class AdminMenu {
         }
     }
 
-    private static void viewAllUsers(List<User> users) throws SQLException, ClassNotFoundException {
-        userDao.viewAll(users);
+    private static void viewAllUsers() throws SQLException, ClassNotFoundException {
+        userDao.viewAll();
     }
 
-    private static void findUserById(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
-        userDao.findById(users, input);
+    private static void findUserById(Scanner input) throws SQLException, ClassNotFoundException {
+        userDao.findById(input);
     }
 
-    private static void updateUser(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
-        userDao.update(users, input);
+    private static void updateUser(Scanner input) throws SQLException, ClassNotFoundException {
+        userDao.update(input);
     }
 
-    private static void deleteUser(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
-        userDao.delete(users, input);
+    private static void deleteUser(Scanner input) throws SQLException, ClassNotFoundException {
+        userDao.delete(input);
     }
 
-    private static void addUser(List<User> users, Scanner input) throws SQLException, ClassNotFoundException {
-        userDao.add(users, input);
+    private static void addUser(Scanner input) throws SQLException, ClassNotFoundException {
+        userDao.add(input);
     }
 }

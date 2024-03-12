@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class UserMenu {
 
-    public static void userSection(List<Client> clients, List<Account> accounts,  Scanner input) throws SQLException, ClassNotFoundException {
+    public static void userSection(Scanner input) throws SQLException, ClassNotFoundException {
 
         String[] userMainMenuItems = new String[3];
         userMainMenuItems[0] = "(1) Clients Section";
@@ -21,10 +21,10 @@ public class UserMenu {
 
             switch (selectedMenuItem){
                 case 0:
-                    ClientMenu.clientSection(clients, input);
+                    ClientMenu.clientSection(input);
                     break;
                 case 1:
-                    AccountMenu.accountSection(accounts, input);
+                    AccountMenu.accountSection(input);
                     break;
                 case 2:
                     return;
