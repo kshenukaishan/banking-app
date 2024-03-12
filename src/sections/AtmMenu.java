@@ -3,13 +3,14 @@ package sections;
 import atm.AtmSection;
 import models.Account;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
 public class AtmMenu {
 
 
-    public static void atmSection(List<Account> accounts, Scanner input){
+    public static void atmSection(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
 
         String[] atmMenuItems = new String[5];
 
@@ -23,7 +24,7 @@ public class AtmMenu {
 
     }
 
-    private static void atmSubMenuSection(List<Account> accounts, Scanner input, String[] atmMenuItems){
+    private static void atmSubMenuSection(List<Account> accounts, Scanner input, String[] atmMenuItems) throws SQLException, ClassNotFoundException {
         while (true){
             int selectedMenuItem = MenuUtil.printMenu(atmMenuItems, input);
             switch (selectedMenuItem){
@@ -45,11 +46,11 @@ public class AtmMenu {
         }
     }
 
-    private static void viewAccountDetails(List<Account> accounts, Scanner input) {
+    private static void viewAccountDetails(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
         AtmSection.viewAccountDetails(accounts, input);
     }
 
-    private static void checkBalance(List<Account> accounts, Scanner input) {
+    private static void checkBalance(List<Account> accounts, Scanner input) throws SQLException, ClassNotFoundException {
         AtmSection.checkBalance(accounts, input);
     }
 
