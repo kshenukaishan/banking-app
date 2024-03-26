@@ -10,7 +10,6 @@ public interface CrudDao<T> {
     void delete(Scanner input) throws SQLException, ClassNotFoundException;
     void update(Scanner input) throws SQLException, ClassNotFoundException;
     void findById(Scanner input) throws SQLException, ClassNotFoundException;
-
     void add(Scanner input) throws SQLException, ClassNotFoundException;
 
 }

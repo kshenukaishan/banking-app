@@ -3,6 +3,7 @@ package dao.custom.impl;
 import dao.CrudUtil;
 import dao.custom.UserDao;
 import models.User;
+import util.GlobalVar;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -103,5 +104,27 @@ public class UserDaoImpl implements UserDao {
                 addStatus = true;
             }
         }
+    }
+
+    public boolean loginUser(Scanner input) throws SQLException, ClassNotFoundException {
+
+        String currentUser;
+
+        System.out.println("Enter the Username");
+        currentUser = input.nextLine();
+        GlobalVar.userName = currentUser;
+        input.nextLine();
+        System.out.println("Enter the Password");
+        String password = input.nextLine();
+
+        ResultSet resultSet = CrudUtil.execute("SELECT id FROM user WHERE password = ?", password);
+
+        if(resultSet.next()){
+            GlobalVar.userId = resultSet.getInt(1);
+            System.out.println("Current User is : " + GlobalVar.userName);
+            return true;
+        }
+        System.out.println("Wrong credentials! please try again!");
+        return false;
     }
 }
